@@ -52,3 +52,34 @@ Best have a look at `./layouts/base.njk` first to understand how it all comes to
 **Change images:**
 
 Images are stored in `./static/img/`; everything in there can be considered a placeholder that should eventually be replaced with your actual production images.
+
+## Python outreach automation bot (web UI)
+
+This repo now includes a Python web app at `automation_bot/` that demonstrates an outreach workflow:
+
+1. Find blue-collar leads by trade + city from a dataset.
+2. Build personalized email subject/body templates.
+3. Run a campaign in **dry-run** mode (safe) or real SMTP mode.
+
+### Run locally
+
+```bash
+cd automation_bot
+python -m venv .venv
+source .venv/bin/activate
+python app.py
+```
+
+Open `http://localhost:5050`.
+
+### SMTP configuration (optional for real sends)
+
+Set these environment variables before starting the app:
+
+- `SMTP_HOST`
+- `SMTP_PORT` (default `587`)
+- `SMTP_USER`
+- `SMTP_PASS`
+- `SMTP_FROM`
+
+If **Dry run** is enabled in the UI, no emails are sent.
